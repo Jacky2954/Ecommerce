@@ -1,28 +1,19 @@
-import {ArrowLefOutlined,ArrowRightOutlined} from "@material-ui/icons"
-import styled from "styled-components"
+import React from 'react';
+import { UncontrolledCarousel } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Container = styled.div`
-    width:100%;
-    height:100vh;
-    diplay:flex;
-`
+const items = [
+  {
+    src: './allimg/promouno.jpg',
+  },
+  {
+    src: './allimg/promojoyeria.jpg',
+  },
+  {
+    src: './allimg/promotienda.jpg',
+  }
+];
 
-const Arrow = styled.div`
-    width:50px;
-    height:50px;
-    background-color: #fff;
-    border-radius: 50%;
-`
+const Carrusel = () => <UncontrolledCarousel items={items} />;
 
-const Slider = () => {
-    return (
-        <Container>
-            <Arrow>
-                <ArrowLefOutlined/>
-            </Arrow>
-            <Arrow>
-                <ArrowRightOutlined/>
-            </Arrow>
-        </Container>
-    )
-}
+export default Carrusel;
