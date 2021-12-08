@@ -73,7 +73,7 @@ const Products = () => {
                       ${product.price}
                     </p>
                     <NavLink to={`/products/${product.id}`} class="btn btn-outline-dark">
-                      Buy Now
+                      Shop now
                     </NavLink>
                   </div>
                 </div>
