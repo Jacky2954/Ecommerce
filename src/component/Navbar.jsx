@@ -38,11 +38,11 @@ const Navbar = () => {
             </ul>
             <div className="buttons">
                 <NavLink to="/login" className="btn btn-outline-light">
-                   <i className="fa fa-sign-in me-1"></i> Login</NavLink>
+                   <i className="fa fa-sign-in me-1"></i> Ingresa</NavLink>
                 <NavLink to="/register" className="btn btn-outline-light ms-2">
-                   <i className="fa fa-user-plus me-1"></i> Register</NavLink>
+                   <i className="fa fa-user-plus me-1"></i> Regístrate</NavLink>
                 <NavLink to="/cart" className="btn btn-outline-light ms-2">
-                   <i className="fa fa-shopping-cart me-1"></i> Cart ({state.length})</NavLink>
+                   <i className="fa fa-shopping-cart me-1"></i> Carrito ({state.length})</NavLink>
             </div>
           </div>
         </div>

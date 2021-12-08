@@ -55,13 +55,11 @@ const Products = () => {
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
-          <button className="btn btn-outline-dark me-2" onClick={()=>setFilter(data)}>All</button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("men's clothing")}>Men's Clothing</button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("women's clothing")}>
-            Women's Clothing
-          </button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("jewelery")}>Jewelery</button>
-          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("electronics")}>Electronic</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>setFilter(data)}>Todo</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("men's clothing")}>Caballeros</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("women's clothing")}>Damas</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("jewelery")}>Joyería</button>
+          <button className="btn btn-outline-dark me-2" onClick={()=>filterProduct("electronics")}>Tecnología</button>
         </div>
         {filter.map((product) => {
           return (
@@ -91,7 +89,7 @@ const Products = () => {
       <div className="container my-5 py-5">
         <div className="row">
           <div className="col-12 mb-5">
-            <h1 className="display-6 fw-bolder text-center">OUR PRODUCTS</h1>
+            <h1 className="display-6 fw-bolder text-center">NUESTROS PRODUCTOS</h1>
             <hr />
           </div>
         </div>
