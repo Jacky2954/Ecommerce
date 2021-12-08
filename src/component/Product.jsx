@@ -4,6 +4,8 @@ import { addCart } from '../redux/action';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
+import { Rate } from 'antd';
+import 'antd/dist/antd.css';
 
 const Product = () => {
 
@@ -56,7 +58,8 @@ const Product = () => {
                     </h4>
                     <h2 className="display-5">{product.title}</h2>
                     <p className="lead fw-bolder">
-                        Valoración {product.rating && product.rating.rate}< i className="fa fa-star"></i>
+                        Valoración {product.rating && product.rating.rate}
+                        <br/><Rate/>
                     </p>
                     <h3 className="display-6 fw-bold my-4">
                         $ {product.price}
