@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import { addCart, delCart } from '../redux/action';
+import { Result, Button } from 'antd';
 
 const Cart = () => {
     const state = useSelector((state)=> state.handleCart)
@@ -19,7 +20,14 @@ const Cart = () => {
             <div className="px-4 my-5 bg-light rounded-3 py-5">
                 <div className="container py-4">
                     <div className="row">
-                        <h3>Tu carrito de compras está vacío</h3>
+                            <Result
+                                title="Tu carrito de compras está vacío"
+                                extra={
+                                    <Button type="primary" key="console">
+                                      Volver a la tienda
+                                    </Button>
+                                  }
+                            />,
                     </div>
                 </div>
             </div>

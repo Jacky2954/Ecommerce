@@ -58,7 +58,7 @@ const Product = () => {
                     </h4>
                     <h2 className="display-5">{product.title}</h2>
                     <p className="lead fw-bolder">
-                        Valoración {product.rating && product.rating.rate}
+                    Valoración {product.rating && product.rating.rate}
                         <br/><Rate/>
                     </p>
                     <h3 className="display-6 fw-bold my-4">
