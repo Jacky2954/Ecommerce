@@ -23,9 +23,11 @@ const Cart = () => {
                             <Result
                                 title="Tu carrito de compras está vacío"
                                 extra={
-                                    <Button type="primary" key="console">
-                                      Volver a la tienda
-                                    </Button>
+                                    <NavLink className="nav-link" to="/products">
+                                        <Button type="primary" key="console">
+                                            Ver productos
+                                        </Button>
+                                    </NavLink>
                                   }
                             />,
                     </div>
