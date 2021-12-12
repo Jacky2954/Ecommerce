@@ -2,8 +2,10 @@ import React from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./login.css";
+import GoogleLogin from 'react-google-login';
 
 class Login extends React.Component {
+
     constructor(){
         super()
         this.state = {
@@ -15,6 +17,12 @@ class Login extends React.Component {
         this.setState({showModal: !this.state.showModal})
     }
     render (){
+
+        const respuestaGoogle=(respuesta)=>{
+            console.log(respuesta);
+            console.log(respuesta.profileObj);
+        }
+
         return (
             <div>
                 <Button variant="btn btn-outline-light ms-2" onClick={()=>this.handleModal()}>
@@ -45,9 +53,20 @@ class Login extends React.Component {
                         </Form.Group>
 
                         <div className="d-grid gap-2">
-                        <Button variant="danger" type="submit" onClick={()=>this.handleModal()}>
-                        <i className="fa fa-google me-1"></i> Iniciar con Google
-                        </Button>
+                            <GoogleLogin
+                                id="buttonGoogle"
+                                clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                render={renderProps => (
+                                  <Button variant="danger" onClick={renderProps.onClick} 
+                                  disabled={renderProps.disabled}>
+                                    <i className="fa fa-google me-1"></i>
+                                     Iniciar con Google</Button>
+                                )}
+                                buttonText="Login"
+                                onSuccess={respuestaGoogle}
+                                onFailure={respuestaGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
                         </div>
                         
                         <br/>
