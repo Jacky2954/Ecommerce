@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Login from "./userSesion/Login";
 import NuevoUsuario from "./userSesion/NuevoUsuario";
 import "./navBar.css";
+import logoNow from "./allimg2/logoNow.png";
 
 const Navbar = () => {
     const state = useSelector((state)=> state.handleCart)
@@ -13,7 +14,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-black py-3 shadow-sm">
         <div className="container">
           <NavLink className="navbar-brand fw-bold fs-4" to="/">
-            <img src="/allimg/LOGO-NOW.png" className="card-img" alt="Background" height="50px" />
+            <img src={logoNow} className="card-img" alt="Background" height="50px" />
           </NavLink>
           <button
             className="navbar-toggler"

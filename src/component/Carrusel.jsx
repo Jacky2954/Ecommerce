@@ -1,16 +1,19 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import promouno from "./allimg2/promouno.jpg";
+import promotienda from "./allimg2/promotienda.jpg";
+import promojoyeria from "./allimg2/promojoyeria.jpg";
 
 const items = [
   {
-    src: './allimg/promouno.jpg',
+    src: promouno,
   },
   {
-    src: './allimg/promojoyeria.jpg',
+    src: promotienda,
   },
   {
-    src: './allimg/promotienda.jpg',
+    src: promojoyeria,
   }
 ];
 
