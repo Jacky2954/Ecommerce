@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Login from "./userSesion/Login";
 import NuevoUsuario from "./userSesion/NuevoUsuario";
+import "./navBar.css";
 
 const Navbar = () => {
     const state = useSelector((state)=> state.handleCart)
@@ -39,8 +40,8 @@ const Navbar = () => {
                 </Form> */}
               </li>
             </ul>
-            <div className="buttons">
-                <Login/>
+            <div className="buttons" id="contenedor"> 
+                <Login id="modalButton"/>
                 <NuevoUsuario/>
                 <NavLink to="/cart" className="btn btn-outline-light ms-2">
                    <i className="fa fa-shopping-cart me-1"></i> Carrito ({state.length})</NavLink>

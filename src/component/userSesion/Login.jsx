@@ -1,6 +1,7 @@
 import React from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./login.css";
 
 class Login extends React.Component {
     constructor(){
@@ -19,7 +20,7 @@ class Login extends React.Component {
                 <Button variant="btn btn-outline-light ms-2" onClick={()=>this.handleModal()}>
                 <i className="fa fa-sign-in me-1"></i>Ingresa</Button>
 
-                <Modal show={this.state.showModal} onHide={()=>this.handleModal()}>
+                <Modal id="modalLogin" show={this.state.showModal} onHide={()=>this.handleModal()}>
                     <Modal.Header closeButton>
                     <h4 className="text-center">
                         Iniciar Sesión

@@ -1,6 +1,7 @@
 import React from "react";
 import {Modal, Button, Form, Label, Input} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./nuevoUsuario.css";
 
 class Register extends React.Component {
     constructor(){
@@ -19,7 +20,7 @@ class Register extends React.Component {
                 <Button variant="btn btn-outline-light ms-2" onClick={()=>this.handleModal()}>
                 <i className="fa fa-user-plus me-1"></i>Regístrate</Button>
 
-                <Modal show={this.state.showModal} onHide={()=>this.handleModal()}>
+                <Modal id="modalRegister" show={this.state.showModal} onHide={()=>this.handleModal()}>
                     <Modal.Header closeButton>
                         <h4 className="text-center">
                         Crear nuevo usuario
@@ -59,12 +60,12 @@ class Register extends React.Component {
                         <br/>
 
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Recordar cuenta" />
+                            <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
 
                         <div className="d-grid gap-2">
                         <Button variant="danger" type="submit" onClick={()=>this.handleModal()}>
-                        <i className="fa fa-google me-1"></i> Registrarse con Google
+                        <i className="fa fa-google me-1"></i>  Registrarse con Google
                         </Button>
                         </div>
                         
