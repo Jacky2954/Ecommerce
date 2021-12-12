@@ -1,5 +1,5 @@
 import React from "react";
-import {Modal, Button, Form, Card} from 'react-bootstrap';
+import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Login extends React.Component {
@@ -21,9 +21,9 @@ class Login extends React.Component {
 
                 <Modal show={this.state.showModal} onHide={()=>this.handleModal()}>
                     <Modal.Header closeButton>
-                        <Card.Title>
+                    <h4 className="text-center">
                         Iniciar Sesión
-                        </Card.Title>
+                    </h4> 
                     </Modal.Header>
                     <Modal.Body>
                         <Form>

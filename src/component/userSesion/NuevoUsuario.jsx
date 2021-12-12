@@ -1,5 +1,5 @@
 import React from "react";
-import {Modal, Button, Form, Card} from 'react-bootstrap';
+import {Modal, Button, Form, Label, Input} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Register extends React.Component {
@@ -21,27 +21,61 @@ class Register extends React.Component {
 
                 <Modal show={this.state.showModal} onHide={()=>this.handleModal()}>
                     <Modal.Header closeButton>
-                        <Card.Title>
-                        Regístrate y conviértete en un Nowlover
-                        </Card.Title>
+                        <h4 className="text-center">
+                        Crear nuevo usuario
+                        </h4> 
                     </Modal.Header>
                     <Modal.Body>
                         <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Usuario</Form.Label>
+                            <Form.Label>E-mail</Form.Label>
                             <Form.Control type="email" />
                         </Form.Group>
 
+                        <Form.Group className="mb-3">
+                        <Form.Label>
+                                Crear usuario
+                            </Form.Label>
+                            <Form.Control type="text" />
+                        </Form.Group>
+
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Label>Crear contraseña</Form.Label>
                             <Form.Control type="password" />
                         </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label for="exampleDate">
+                                Fecha de nacimiento
+                            </Form.Label>
+                                <Form.Control
+                                id="exampleDate"
+                                name="date"
+                                placeholder="date placeholder"
+                                type="date"
+                            />
+                        </Form.Group>
+
+                        <br/>
+
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
-                            Submit
+
+                        <div className="d-grid gap-2">
+                        <Button variant="danger" type="submit" onClick={()=>this.handleModal()}>
+                        <i className="fa fa-google me-1"></i> Registrarse con Google
                         </Button>
+                        </div>
+                        
+                        <br/>
+
+                        <div className="d-grid gap-2">
+                        <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
+                            Finalizar
+                        </Button>
+                        </div>
+
                         </Form>
                     </Modal.Body>     
                 </Modal>
