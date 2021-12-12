@@ -36,12 +36,26 @@ class Login extends React.Component {
                             <Form.Label>Contraseña</Form.Label>
                             <Form.Control type="password" />
                         </Form.Group>
+
+                        <br/>
+
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
+                            <Form.Check type="checkbox" label="Recordar cuenta" />
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
-                            Submit
+
+                        <div className="d-grid gap-2">
+                        <Button variant="danger" type="submit" onClick={()=>this.handleModal()}>
+                        <i className="fa fa-google me-1"></i> Iniciar con Google
                         </Button>
+                        </div>
+                        
+                        <br/>
+
+                        <div className="d-grid gap-2">
+                        <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
+                            Ingresar
+                        </Button>
+                        </div>
                         </Form>
                     </Modal.Body>     
                 </Modal>

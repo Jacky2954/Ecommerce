@@ -59,7 +59,7 @@ class Register extends React.Component {
                         <br/>
 
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
+                            <Form.Check type="checkbox" label="Recordar cuenta" />
                         </Form.Group>
 
                         <div className="d-grid gap-2">
