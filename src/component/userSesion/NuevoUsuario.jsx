@@ -73,7 +73,7 @@ class Register extends React.Component {
 
                         <div className="d-grid gap-2">
                         <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
-                            Finalizar
+                            Registrarse
                         </Button>
                         </div>
 
