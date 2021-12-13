@@ -3,23 +3,10 @@ import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./loginstyle.css";
 import GoogleLogin from 'react-google-login';
-import axios from "axios";
-import md5 from "md5";
-import cookies from "universal-cookies";
 
 
-const baseUrl = "http://localhost:3001/usuarios";
-
-const Cookies = new cookies();
 
 class Login extends React.Component {
-
-    state={
-        form:{
-            username: '',
-            contraseña: '',
-        }
-    }
 
     handleChange= async e=>{
         await this.setState({
@@ -28,35 +15,6 @@ class Login extends React.Component {
                 [e.target.name]: e.target.value
             }
         });
-    }
-
-    iniciarSesion=async()=>{
-        await axios.get(baseUrl, 
-            {params:{username:this.state.form.username,
-            contraseña: md5 (this.state.form.contraseña)}})
-            .then(response=>{
-                return response.data;
-            })
-
-            .then(response=>{
-                if(response.length>0){
-                    const respuesta=response[0] ('id', respuesta.id, {path:"/"}); 
-                    cookies.set('id', respuesta.id, {path:"/"});
-                    cookies.set('nombre', respuesta.nombre, {path:"/"});
-                    cookies.set('username', respuesta.username, {path:"/"});
-                    cookies.set('email', respuesta.email, {path:"/"});
-                    cookies.set('contraseña', respuesta.contraseña, {path:"/"});
-
-                    alert('Bienvenio(a) ${respuesta.nombre}');
-
-                }else{
-                    alert('El usuario o contraseña no son correctos')
-                }
-            })
-
-            .catch(error=>{
-                console.log(error);
-            })    
     }
 
     constructor(){
