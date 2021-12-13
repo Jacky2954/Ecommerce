@@ -5,9 +5,10 @@ import { Switch, Route } from "react-router-dom";
 import Products from "./component/Products";
 import Product from "./component/Product";
 import Cart from "./component/Cart";
+import Login from "./component/userSesion/Login";
 
 
-function App() {
+function Routes() {
   return (
     <>
       <Navbar />
@@ -16,9 +17,10 @@ function App() {
         <Route exact path="/products" component={Products} />
         <Route exact path="/products/:id" component={Product} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/login" component={Login} />
       </Switch>
     </>
   );
 }
 
-export default App;
+export default Routes;

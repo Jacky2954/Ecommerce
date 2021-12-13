@@ -1,10 +1,63 @@
 import React from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./login.css";
+import "./loginstyle.css";
 import GoogleLogin from 'react-google-login';
+import axios from "axios";
+import md5 from "md5";
+import cookies from "universal-cookies";
+
+
+const baseUrl = "http://localhost:3001/usuarios";
+
+const Cookies = new cookies();
 
 class Login extends React.Component {
+
+    state={
+        form:{
+            username: '',
+            contraseña: '',
+        }
+    }
+
+    handleChange= async e=>{
+        await this.setState({
+            form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+            }
+        });
+    }
+
+    iniciarSesion=async()=>{
+        await axios.get(baseUrl, 
+            {params:{username:this.state.form.username,
+            contraseña: md5 (this.state.form.contraseña)}})
+            .then(response=>{
+                return response.data;
+            })
+
+            .then(response=>{
+                if(response.length>0){
+                    const respuesta=response[0] ('id', respuesta.id, {path:"/"}); 
+                    cookies.set('id', respuesta.id, {path:"/"});
+                    cookies.set('nombre', respuesta.nombre, {path:"/"});
+                    cookies.set('username', respuesta.username, {path:"/"});
+                    cookies.set('email', respuesta.email, {path:"/"});
+                    cookies.set('contraseña', respuesta.contraseña, {path:"/"});
+
+                    alert('Bienvenio(a) ${respuesta.nombre}');
+
+                }else{
+                    alert('El usuario o contraseña no son correctos')
+                }
+            })
+
+            .catch(error=>{
+                console.log(error);
+            })    
+    }
 
     constructor(){
         super()
@@ -37,13 +90,15 @@ class Login extends React.Component {
                     <Modal.Body>
                         <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Usuario</Form.Label>
-                            <Form.Control type="email" />
+                            <Form.Label>
+                                Usuario
+                            </Form.Label>
+                            <Form.Control type="text" name="username" onChange={this.handleChange}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" />
+                            <Form.Control type="password" name="contraseña" onChange={this.handleChange}/>
                         </Form.Group>
 
                         <br/>
@@ -72,7 +127,7 @@ class Login extends React.Component {
                         <br/>
 
                         <div className="d-grid gap-2">
-                        <Button variant="primary" type="submit" onClick={()=>this.handleModal()}>
+                        <Button variant="primary" type="submit" onClick={()=>this.iniciarSesion()}>
                             Ingresar
                         </Button>
                         </div>
