@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./loginstyle.css";
 import GoogleLogin from 'react-google-login';
 
-
-
 class Login extends React.Component {
 
     handleChange= async e=>{

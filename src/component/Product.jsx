@@ -53,10 +53,10 @@ const Product = () => {
                     <img src={product.image} alt={product.title} height="400px" width="400px" />
                 </div>
                 <div className="col-md-6">
-                    <h4 className="text-uppercase text-black-50">
+                    <h5 className="text-uppercase text-black-50">
                         {product.category}
-                    </h4>
-                    <h2 className="display-5">{product.title}</h2>
+                    </h5>
+                    <h4 className="display-5">{product.title}</h4>
                     <p className="lead fw-bolder">
                     Valoración {product.rating && product.rating.rate}
                         <br/><Rate/>
