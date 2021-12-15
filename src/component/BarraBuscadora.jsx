@@ -1,29 +1,33 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {FormControl, Button, InputGroup} from 'react-bootstrap';
+import {Card, FormControl, Button, InputGroup} from 'react-bootstrap';
 
 function App(){
-    const [product, setProduct] = useState ([]);
-    const [productMatch, setProductMatch] = useState ([]);
+    const [products, setproducts] = useState ([]);
+    const [productsMatch, setProductsMatch] = useState ([]);
 
     useEffect(() => {
-        const loadProduct = async () => {
+        const loadproducts = async () => {
             const response = await axios.get('https://fakestoreapi.com/products');
-            setProduct(response.data);
+            setproducts(response.data);
         };
 
-        loadProduct();
+        loadproducts();
 
     }, []);
 
-    cosole.log(product);
+    console.log(products);
 
-    const searchProduct = (text) => {
-        let matches = product.filtrer((product) => {
+    const searchProducts = (text) => {
+        if(!text){
+            setProductsMatch([]);
+        }else {
+        let matches = products.filtrer((products) => {
             const regex = new RegExp(`${text}`, "gi");
-            return product.name.match(regex) || product.capital.match(regex);
+            return products.name.match(regex);
         })
-        setProductMatch(matches)
+        setProductsMatch(matches)
+        }
     };
 
     return (
@@ -32,20 +36,22 @@ function App(){
                 <FormControl
                     aria-label="Example text with button addon"
                     aria-describedby="basic-addon1"
-                    onChange={(e)=> searchProduct(e.target.value)}
+                    onChange={(e)=> searchProducts(e.target.value)}
                 />
                 <Button variant="btn btn-outline-light ms-2" id="button-addon1">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </Button>
             </InputGroup>
-            {productMatch && productMatch.map((item, index)=>(
-                <div>
+            {productsMatch && productsMatch.map((item, index)=>(
+                <div key={index} style={{marginLeft:"35%", marginTop:"5px"}}>
                     <Card style={{width: "50%"}}
-                    title={`Product: ${item.name}`}>
-
+                    title={`products: ${item.name}`}>
+                        {item.capital}
                     </Card>
                 </div>
             ))}
         </div>
     )
 }
+
+export default App;
