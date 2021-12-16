@@ -42,7 +42,8 @@ function App(){
             {suggestions && suggestions.map((suggestion,i)=>
             <div key={i} className="suggestion col-md-12 justify-content-md-center"
             id="contenido"
-            >{suggestion.title}</div>
+            >{suggestion.title}
+            </div>
             )}
         </div>
         )
