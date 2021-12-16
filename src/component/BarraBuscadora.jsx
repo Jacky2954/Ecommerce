@@ -1,57 +1,52 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import {Card, FormControl, Button, InputGroup} from 'react-bootstrap';
+import React from 'react';
+import {useEffect, useState} from 'react';
+import "./barrastyle.css";
+
 
 function App(){
-    const [products, setproducts] = useState ([]);
-    const [productsMatch, setProductsMatch] = useState ([]);
+    const [products, setProducts] = useState ([])
+    const [text, setText] = useState('');
+    const [suggestions, setSuggestions] = useState([])
 
     useEffect(() => {
-        const loadproducts = async () => {
-            const response = await axios.get('https://fakestoreapi.com/products');
-            setproducts(response.data);
-        };
-
-        loadproducts();
-
+        const getProduct = async () => {
+            const response = await fetch(`https://fakestoreapi.com/products/`);
+            setProducts(await response.json());
+        }
+        getProduct();
     }, []);
 
-    console.log(products);
-
-    const searchProducts = (text) => {
-        if(!text){
-            setProductsMatch([]);
-        }else {
-        let matches = products.filtrer((products) => {
-            const regex = new RegExp(`${text}`, "gi");
-            return products.name.match(regex);
-        })
-        setProductsMatch(matches)
+    const onChangeHandler = (text) => {
+        let matches = []
+        if (text.length>0){
+            matches = products.filter(products=>{
+                const regex = new RegExp(`${text}`,"gi");
+                return products.title.match(regex)
+            })
         }
-    };
+        console.log('matches', matches)
+        setSuggestions (matches)
+        setText(text);
+    }
 
     return (
-        <div className="App">
-            <InputGroup class="form-control mr-sm-2">
-                <FormControl
-                    aria-label="Example text with button addon"
-                    aria-describedby="basic-addon1"
-                    onChange={(e)=> searchProducts(e.target.value)}
-                />
-                <Button variant="btn btn-outline-light ms-2" id="button-addon1">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </Button>
-            </InputGroup>
-            {productsMatch && productsMatch.map((item, index)=>(
-                <div key={index} style={{marginLeft:"35%", marginTop:"5px"}}>
-                    <Card style={{width: "50%"}}
-                    title={`products: ${item.name}`}>
-                        {item.capital}
-                    </Card>
-                </div>
-            ))}
+        <div className="container">
+ 
+            <input type="text" 
+            className="col-md-5" 
+            placeholder="  Buscar..."
+            id="barraBuscar"
+            onChange={e=>onChangeHandler(e.target.value)}
+            value={text}
+            />
+            {suggestions && suggestions.map((suggestion,i)=>
+            <div key={i} className="suggestion col-md-12 justify-content-md-center"
+            id="contenido"
+            >{suggestion.title}</div>
+            )}
         </div>
-    )
+        )
 }
+
 
 export default App;

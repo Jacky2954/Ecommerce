@@ -6,6 +6,7 @@ import Products from "./component/Products";
 import Product from "./component/Product";
 import Cart from "./component/Cart";
 import Login from "./component/userSesion/Login";
+import BarraBuscadora from "./component/BarraBuscadora";
 
 
 function Routes() {
@@ -18,6 +19,7 @@ function Routes() {
         <Route exact path="/products/:id" component={Product} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/barrabuscadora" component={BarraBuscadora} />
       </Switch>
     </>
   );

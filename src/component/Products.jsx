@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
+
 const Products = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -45,13 +46,14 @@ const Products = () => {
     </>
     );
   };
-
+  
   const filterProduct = (cat) => {
       const updatedList = data.filter((x)=>x.category === cat);
       setFilter(updatedList);
   }
 
   const ShowProducts = () => {
+
     return (
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
@@ -61,6 +63,7 @@ const Products = () => {
           <button className="btn btn-dark me-2" onClick={()=>filterProduct("jewelery")}>Joyería</button>
           <button className="btn btn-dark me-2" onClick={()=>filterProduct("electronics")}>Tecnología</button>
         </div>
+        
         {filter.map((product) => {
           return (
             <>
