@@ -1,5 +1,5 @@
 import React from "react";
-import {Modal, Button, Form, Label, Input} from 'react-bootstrap';
+import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./nuevoUsuario.css";
 import GoogleLogin from 'react-google-login';

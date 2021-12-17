@@ -2,7 +2,6 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import "./barrastyle.css";
 
-
 function App(){
     const [products, setProducts] = useState ([])
     const [text, setText] = useState('');

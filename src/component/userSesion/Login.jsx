@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import {Modal, Button, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./loginstyle.css";
 import GoogleLogin from 'react-google-login';
 
 class Login extends React.Component {
+
+    state={
+        form:{
+            username: '',
+            contraseña: '',
+        }
+    }
 
     handleChange= async e=>{
         await this.setState({
@@ -13,6 +20,13 @@ class Login extends React.Component {
                 [e.target.name]: e.target.value
             }
         });
+    }
+    
+    async component() {
+        const response = async (id) => {
+            let res = await fetch(`https://fakestoreapi.com/users/${id}`);
+            let data = await res.json();
+        }
     }
 
     constructor(){
@@ -54,7 +68,7 @@ class Login extends React.Component {
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" name="contraseña" onChange={this.handleChange}/>
+                            <Form.Control type="password" name="password" onChange={this.handleChange}/>
                         </Form.Group>
 
                         <br/>
